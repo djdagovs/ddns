@@ -1,0 +1,14 @@
+{
+    "require": {
+        "slim/slim": "^3.0",
+        "symfony/console": "~3.0",
+        "omines/directadmin": "~0.1",
+        "martinlindhe/php-myip": "~0.2",
+        "vlucas/phpdotenv": "~2.2"
+    },
+    "autoload": {
+        "psr-4": {
+        	"Ddns\\": "src/"
+        }
+    }
+}
