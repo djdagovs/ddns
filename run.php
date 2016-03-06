@@ -2,11 +2,11 @@
 <?php
 require 'vendor/autoload.php';
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
-
 use Symfony\Component\Console\Application;
 use Ddns\DdnsCommand;
+
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
 
 $app = new Application;
 $app->add(new DdnsCommand);

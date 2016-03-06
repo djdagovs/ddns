@@ -21,11 +21,10 @@ class DdnsCommand extends Command {
 	{
 		$ipAddress = IpProvider::factory()->getIPv4();
 
-	    $userContext = DirectAdmin::connectAdmin(
-	    	'https://'.getenv('DA_HOSTNAME').':'.getenv('DA_PORT'), 
+	    $userContext = DirectAdmin::connectUser(
+	    	getenv('DA_HOSTNAME').':'.getenv('DA_PORT'), 
 	    	getenv('DA_USERNAME'), 
-	    	getenv('DA_PASSWORD'),
-	    	true);
+	    	getenv('DA_PASSWORD'));
 
 	   	$userContext->invokeGet('DNS_CONTROL', [
 	    		'domain' => getenv('DOMAIN'),
@@ -43,6 +42,6 @@ class DdnsCommand extends Command {
 	    	]
 	    );
 
-	    $output->writeln('IP updated to '.$ipAddress);
+	    $output->writeln(getenv('DNS_RECORD').'.'.getenv('DOMAIN').' is pointed to '.$ipAddress);
 	}
 }
